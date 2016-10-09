@@ -1,0 +1,12 @@
+service-reverse:
+  build: .
+  image: shaunpersad/hello-service-reverse
+  command: nodemon index.js
+  environment:
+    NODE_ENV: development
+  links:
+    - rabbitmq
+  restart: always
+  volumes:
+    - .:/usr/src/app
+    - /usr/src/app/node_modules
